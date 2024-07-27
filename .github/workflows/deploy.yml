@@ -22,4 +22,4 @@ jobs:
 
       - name: Copy files via SCP
         run: |
-          scp -i ~/.ssh/deploy_key -r ./ root@172.232.173.16:/root/school
+          scp -i ~/.ssh/deploy_key -r ./dist root@172.232.173.16:/root/school
