@@ -9,10 +9,12 @@
     <h1>Home Assistant Control</h1>
     <div id="entities">
         {% for entity_id, state in entities.items() %}
-        <div>
-            <h2>{{ entity_id }}</h2>
-            <p>State: {{ state.state }}</p>
-        </div>
+            {% if state.domain == 'light' %}
+            <div>
+                <h2>{{ entity_id }}</h2>
+                <p>State: {{ state.state }}</p>
+            </div>
+            {% endif %}
         {% endfor %}
     </div>
 
