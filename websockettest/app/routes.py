@@ -8,7 +8,7 @@ import json
 entities = {}
 
 # WebSocket connection details
-HA_URL = "ws://auto.eriksononline.com/api/websocket"
+HA_URL = "ws://10.0.254.147:8123/api/websocket"
 HA_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWI5YzljYjllMmE0OWNhOWJhYmEzOTIyY2MzMDBlMyIsImlhdCI6MTcyMjczMzIzMSwiZXhwIjoyMDM4MDkzMjMxfQ.7l-TvRyOEbAQLdSsQnMlyL_WfuSoye4LKFp25oy0aR4"
 
 def on_message(ws, message):
