@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Assistant Control</title>
+</head>
+<body>
+    <h1>Home Assistant Control</h1>
+    <div id="entities">
+        {% for entity_id, state in entities.items() %}
+        <div>
+            <h2>{{ entity_id }}</h2>
+            <p>State: {{ state.state }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Auto-refresh the entities list every 5 seconds
+        setInterval(() => {
+            fetch('/api/entities')
+                .then(response => response.json())
+                .then(data => {
+                    const entitiesDiv = document.getElementById('entities');
+                    entitiesDiv.innerHTML = '';
+                    for (const [entity_id, state] of Object.entries(data)) {
+                        const entityDiv = document.createElement('div');
+                        entityDiv.innerHTML = `<h2>${entity_id}</h2><p>State: ${state.state}</p>`;
+                        entitiesDiv.appendChild(entityDiv);
+                    }
+                });
+        }, 5000);
+    </script>
+</body>
+</html>
